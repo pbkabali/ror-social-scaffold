@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :friends_requested, foreign_key: 'requester_id', class_name: 'Friendship'
+  has_many :friends_received, foreign_key: 'receiver_id', class_name: 'Friendship'
 end
