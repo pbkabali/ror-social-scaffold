@@ -24,3 +24,7 @@ end
 5.times do |e|
   Like.create(user_id: e+1, post_id: e+1)
 end
+
+5.times do |e|
+  Dislike.create(user_id: e+2, post_id: e+1)
+end
