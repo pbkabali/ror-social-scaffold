@@ -8,7 +8,7 @@ RSpec.describe Post, type: :model do
     end
 
     it 'assigns the values passed' do
-      p = User.new({ content: 'My crazy post' })
+      p = Post.new({ content: 'My crazy post' })
       expect(p.content).to eql('My crazy post')
     end
   end
@@ -35,7 +35,7 @@ RSpec.describe Post, type: :model do
   end
 
   context 'Testing associations' do
-    it 'has many posts' do
+    it 'belongs to a user' do
       p = Post.new
       expect(p.user).to be_a(Object)
     end

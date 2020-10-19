@@ -11,7 +11,7 @@ RSpec.describe Like, type: :model do
   context 'Testing validations' do
     it 'validates object to have attributes' do
       like = Like.new
-      expect(like.valid?).to to be_falsy
+      expect(like.valid?).to be_falsy
     end
 
     it 'validates the user_id to be unique' do

@@ -11,7 +11,7 @@ RSpec.describe Dislike, type: :model do
   context 'Testing validations' do
     it 'validates object to have attributes' do
       dislike = Dislike.new
-      expect(dislike.valid?).to to be_falsy
+      expect(dislike.valid?).to be_falsy
     end
 
     it 'validates the user_id to be unique' do
