@@ -33,7 +33,6 @@ RSpec.describe Like, type: :model do
       like = Like.new({ user_id: u.id, post_id: p.id })
       expect(like.valid?).to be_falsy
     end
-    
   end
 
   context 'Testing associations' do

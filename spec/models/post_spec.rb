@@ -18,7 +18,7 @@ RSpec.describe Post, type: :model do
       p = Post.new
       expect(p.valid?).to be_falsy
     end
-    
+
     it 'validates the object to have proper attributes to be valid' do
       u = User.new({ name: 'El_derpo', email: 'el_derpo@email.com', password: '123456' })
       u.save
@@ -56,4 +56,3 @@ RSpec.describe Post, type: :model do
     end
   end
 end
-

@@ -18,13 +18,13 @@ RSpec.describe Comment, type: :model do
       c = Comment.new
       expect(c.valid?).to be_falsy
     end
-    
+
     it 'validates the object to have proper attributes to be valid' do
       u = User.new({ name: 'El_derpo', email: 'el_derpo@email.com', password: '123456' })
       u.save
       p = Post.new({ content: 'My nice post', user_id: u.id })
       p.save
-      c = Comment.new({ content: 'post comment here', user_id: u.id, post_id: p.id})
+      c = Comment.new({ content: 'post comment here', user_id: u.id, post_id: p.id })
       expect(c.valid?).to be_truthy
     end
 
@@ -33,7 +33,7 @@ RSpec.describe Comment, type: :model do
       u.save
       p = Post.new({ content: 'My nice post', user_id: u.id })
       p.save
-      c = Comment.new({ user_id: u.id, post_id: p.id})
+      c = Comment.new({ user_id: u.id, post_id: p.id })
       expect(c.valid?).to be_falsy
     end
   end

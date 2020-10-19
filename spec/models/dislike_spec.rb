@@ -33,7 +33,6 @@ RSpec.describe Dislike, type: :model do
       dislike = Dislike.new({ user_id: u.id, post_id: p.id })
       expect(dislike.valid?).to be_falsy
     end
-    
   end
 
   context 'Testing associations' do
@@ -48,4 +47,3 @@ RSpec.describe Dislike, type: :model do
     end
   end
 end
-

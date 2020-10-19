@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
       u = User.new
       expect(u.valid?).to be_falsy
     end
-    
+
     it 'validates the object to have proper attributes to be valid' do
       u = User.new({ name: 'El_derpo', email: 'el_derpo@email.com', password: '123456' })
       expect(u.valid?).to be_truthy

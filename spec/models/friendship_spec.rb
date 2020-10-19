@@ -16,13 +16,12 @@ RSpec.describe Friendship, type: :model do
   end
 
   context 'Association tests' do
-
     it 'associates a receiver and a requester' do
       u1 = User.new({ name: 'El_derpo', email: 'el_derpo@email.com', password: '123456' })
       u1.save
       u2 = User.new({ name: 'El_herpo', email: 'el_herpo@email.com', password: '123456' })
       u2.save
-      f = Friendship.new({requester_id: u1.id, receiver_id: u2.id})
+      f = Friendship.new({ requester_id: u1.id, receiver_id: u2.id })
       expect(f.requester).to eql(u1)
       expect(f.receiver).to eql(u2)
     end
