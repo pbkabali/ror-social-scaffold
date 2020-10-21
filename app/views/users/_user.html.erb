@@ -2,5 +2,16 @@
   Name: <%= user.name %>
   <span class="profile-link">
     <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
+    <%if pending_request_sent?(user)%>
+      <p>request sent</p>
+    <%elsif pending_request_received?(user)%>
+      <%= link_to 'Accept Friend Request', friendship_path(user.id), method: 'patch', class: 'profile-link' %>
+      <%= link_to 'Reject Friend Request', friendship_path(user.id), method: 'delete', class: 'profile-link' %>
+    <%elsif friend_request_confirmed?(user)%>
+      <p>Friend</p>
+    <%else%>
+      <%= link_to 'Send Friend Request', friendships_path(id: user.id), method: 'post', class: 'profile-link' %>
+    <%end%>
+    
   </span>
 </li>

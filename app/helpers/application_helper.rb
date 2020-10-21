@@ -19,4 +19,16 @@ module ApplicationHelper
   def pending_requests_count
     current_user.friends_received.pending.count
   end
+
+  def pending_request_sent?(user)
+    current_user.pending_requested_friends.include?(user)
+  end
+
+  def pending_request_received?(user)
+    current_user.pending_received_friends.include?(user)
+  end
+
+  def friend_request_confirmed?(user)
+    current_user.confirmed_friends.include?(user)
+  end
 end
