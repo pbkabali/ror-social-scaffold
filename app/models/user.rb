@@ -14,19 +14,18 @@ class User < ApplicationRecord
   has_many :friends_received, foreign_key: 'receiver_id', class_name: 'Friendship', dependent: :destroy
 
   def pending_requested_friends
-    friends_array = friends_requested.map{|friendship| friendship.receiver unless friendship.status}
+    friends_array = friends_requested.map { |friendship| friendship.receiver unless friendship.status }
     friends_array.compact
   end
 
   def pending_received_friends
-    friends_array = friends_received.map{|friendship| friendship.requester unless friendship.status}
+    friends_array = friends_received.map { |friendship| friendship.requester unless friendship.status }
     friends_array.compact
   end
 
   def confirmed_friends
-    friends_array = friends_requested.map{|friendship| friendship.receiver if friendship.status}
-    friends_array += friends_received.map{|friendship| friendship.requester if friendship.status}
+    friends_array = friends_requested.map { |friendship| friendship.receiver if friendship.status }
+    friends_array += friends_received.map { |friendship| friendship.requester if friendship.status }
     friends_array.compact
   end
-
 end

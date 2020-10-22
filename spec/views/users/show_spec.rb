@@ -9,7 +9,7 @@ RSpec.describe 'users/show', type: :view do
       assign(:user, u)
       assign(:posts, u.posts)
       render
-      expect(rendered).to match("#{u.name}")
+      expect(rendered).to match(u.name.to_s)
     end
   end
 end
