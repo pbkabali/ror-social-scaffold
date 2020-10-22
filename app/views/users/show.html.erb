@@ -1,5 +1,12 @@
 <section class="user-section">
   <h2><%= "Name: #{@user.name}" %></h2>
+  <%if pending_request_sent?(@user)%>
+    <button> Request sent </button>
+  <%elsif friend_request_confirmed?(@user)%>
+    <button> Friend </button>
+  <%else%>
+    <%= button_to 'Send Friend Request', friendships_path(id: @user.id), method: 'post' %>
+  <%end%>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
