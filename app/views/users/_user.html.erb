@@ -9,7 +9,7 @@
       <%= link_to 'Reject Friend Request', friendship_path(id: user.id), method: 'delete', class: 'profile-link' %>
     <%elsif friend_request_confirmed?(user)%>
       <p>Friend</p>
-    <%else%>
+    <%elsif user.id != current_user.id%>
       <%= link_to 'Send Friend Request', friendships_path(id: user.id), method: 'post', class: 'profile-link' %>
     <%end%>
     

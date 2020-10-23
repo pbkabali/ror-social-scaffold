@@ -4,7 +4,10 @@
     <button> Request sent </button>
   <%elsif friend_request_confirmed?(@user)%>
     <button> Friend </button>
-  <%else%>
+  <%elsif pending_request_received?(@user)%>
+  <%= button_to 'Accept Friend Request', friendship_path(id: @user.id), method: 'patch' %>
+  <%= button_to 'Reject Friend Request', friendship_path(id: @user.id), method: 'delete' %>
+  <%elsif @user.id != current_user.id%>
     <%= button_to 'Send Friend Request', friendships_path(id: @user.id), method: 'post' %>
   <%end%>
   <article class="timeline">
