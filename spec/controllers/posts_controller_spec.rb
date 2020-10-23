@@ -6,7 +6,6 @@ RSpec.describe PostsController do
       u = User.create!({ name: 'Name 2', email: 'email2@email.com', password: '123456' })
       u.save
       sign_in(u)
-      # p = Post.new({user_id: u.id, content: "post content"})
       get :index
       expect(assigns(:post)).to be_a(Object)
       expect(assigns(:post).content).to eq(nil)
