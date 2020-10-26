@@ -13,6 +13,10 @@ class User < ApplicationRecord
   has_many :friends_requested, foreign_key: 'requester_id', class_name: 'Friendship', dependent: :destroy
   has_many :friends_received, foreign_key: 'receiver_id', class_name: 'Friendship', dependent: :destroy
 
+  def friendships
+    Friendship.where('requester_id = ? OR receiver_id = ?', id, id).where('status = ?', true)
+  end
+
   def pending_requested_friends
     friends_array = friends_requested.map { |friendship| friendship.receiver unless friendship.status }
     friends_array.compact
@@ -26,6 +30,6 @@ class User < ApplicationRecord
   def confirmed_friends
     friends_array = friends_requested.map { |friendship| friendship.receiver if friendship.status }
     friends_array += friends_received.map { |friendship| friendship.requester if friendship.status }
-    friends_array.compact
+    friends_array.compact.uniq
   end
 end
