@@ -10,7 +10,7 @@
 end
 
 5.times do |e|
-  Friendship.create(requester_id: 1, receiver_id: e+2, status: e.even?)
+  Friendship.create(requester_id: 1, receiver_id: e+2, status: false)
 end
 
 5.times do |e|

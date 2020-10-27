@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def pending_requests_count
-    current_user.friends_received.pending.count
+    current_user.pending_received_friendships.count
   end
 
   def pending_request_sent?(user)
