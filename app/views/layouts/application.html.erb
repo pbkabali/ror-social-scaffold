@@ -19,6 +19,11 @@
         </div>
       </div>
       <% if current_user %>
+        <% if pending_requests_count.positive? %>
+          <% link_phrase = 'You have ' + pending_requests_count.to_s + ' friend requests' %>
+          <%= link_to link_phrase, friendships_path %>
+        <% end %>
+        <p> <%= current_user.name %> </p>
         <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Sign in', user_session_path %>

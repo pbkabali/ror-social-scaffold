@@ -1,15 +1,18 @@
 # Scaffold for social media app with Ruby on Rails
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+> This is a social media app with basic styling. The starting point was a forked repo from the Microverse RoR scaffold project.<br>
+> This project was worked on to add full friendship functionality with complete tests.
 
 ## Built With
 
 - Ruby v2.7.0
-- Ruby on Rails v5.2.4
+- Ruby on Rails v5.2.4.1
+- Rubocop
+- Rspec
 
 ## Live Demo
 
-TBA
+- [Stay in touch](https://polar-wildwood-12734.herokuapp.com)
 
 
 ## Getting Started
@@ -18,9 +21,9 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ruby: 2.6.3
-Rails: 5.2.3
-Postgres: >=9.5
+- Ruby: 2.6.3
+- Rails: 5.2.3
+- Postgres: >=9.5
 
 ### Setup
 
@@ -37,15 +40,7 @@ Setup database with:
    rails db:migrate
 ```
 
-### Github Actions
-
-To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
-
-1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
-2. Create the `feature/branch` and push.
-3. Start working on your milestone as usual.
-4. Open a PR from the `feature/branch` when your work is done.
-
+>If the user wants to seed the datbases with initial data they should run `rails db:seed`
 
 ### Usage
 
@@ -60,18 +55,21 @@ Open `http://localhost:3000/` in your browser.
 ### Run tests
 
 ```
-    rpsec --format documentation
+    rspec
 ```
-
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
-
-### Deployment
-
-TBA
-
 ## Authors
 
-TBA
+👤 **Paul Balitema Kabali**
+
+- Github: [@pbkabali](https://github.com/pbkabali)
+- Twitter: [@pbkabali](https://twitter.com/pbkabali)
+- Linkedin: [engineerbpk](https://linkedin.com/in/engineerbpk)
+
+👤 **Abel Lavieri**
+
+- Github: [@alvp01](https://github.com/alvp01/)
+- Twitter: [@alvp01](https://twitter.com/alvp01/)
+- Linkedin: [alvp01](https://www.linkedin.com/in/alvp01/)
 
 ## 🤝 Contributing
 
@@ -85,9 +83,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-TBA
+- [microverseinc social scaffold](https://github.com/microverseinc/ror-social-scaffold)
 
 ## 📝 License
 
-TBA
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.
 
