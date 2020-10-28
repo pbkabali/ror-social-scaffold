@@ -60,12 +60,30 @@ RSpec.describe User, type: :model do
 
     it 'has many friend requests' do
       u = User.new
-      expect(u.friends_requested).to be_a(Object)
+      expect(u.pending_requested_friendships).to be_a(Object)
     end
 
     it 'has many friend receipts' do
       u = User.new
-      expect(u.friends_received).to be_a(Object)
+      expect(u.pending_received_friendships).to be_a(Object)
+    end
+  end
+
+  context 'Testings duplicated friends' do
+    it 'has many friendships' do
+      x = User.create({ name: 'El_derpo', email: 'el_derpo@email.com', password: '123456' })
+      u = User.create({ name: 'El_herpo', email: 'el_herpo@email.com', password: '123456' })
+      Friendship.create({ receiver_id: x.id, requester_id: u.id, status: true })
+      Friendship.create({ receiver_id: u.id, requester_id: x.id, status: true })
+      expect(u.confirmed_friendships.count).to eq(1)
+    end
+
+    it 'has unique friends' do
+      x = User.create({ name: 'El_derpo', email: 'el_derpo@email.com', password: '123456' })
+      u = User.create({ name: 'El_herpo', email: 'el_herpo@email.com', password: '123456' })
+      Friendship.create({ receiver_id: x.id, requester_id: u.id, status: true })
+      Friendship.create({ receiver_id: u.id, requester_id: x.id, status: true })
+      expect(u.confirmed_friends.count).to eq(1)
     end
   end
 end

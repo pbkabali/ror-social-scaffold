@@ -31,14 +31,24 @@ RSpec.describe FriendshipsController do
   end
 
   describe 'PATCH update' do
-    it 'assigns @friendship' do
+    it 'assigns @friendship1' do
       u = User.create!({ name: 'Name', email: 'email@email.com', password: '123456' })
       u2 = User.create!({ name: 'Name 2', email: 'email2@email.com', password: '123456' })
       Friendship.create!({ requester_id: u2.id, receiver_id: u.id, status: false })
       sign_in(u)
       controller.request.headers.merge({ 'HTTP_REFERER': friendships_path })
       patch :update, params: { id: u2.id }
-      expect(assigns(:friendship).receiver_id).to eq(u.id)
+      expect(assigns(:friendship1).receiver_id).to eq(u.id)
+    end
+
+    it 'assigns @friendship2' do
+      u = User.create!({ name: 'Name', email: 'email@email.com', password: '123456' })
+      u2 = User.create!({ name: 'Name 2', email: 'email2@email.com', password: '123456' })
+      Friendship.create!({ requester_id: u2.id, receiver_id: u.id, status: false })
+      sign_in(u)
+      controller.request.headers.merge({ 'HTTP_REFERER': friendships_path })
+      patch :update, params: { id: u2.id }
+      expect(assigns(:friendship2).requester_id).to eq(u.id)
     end
   end
 
